@@ -18,7 +18,6 @@ import ManageComs from '@/views/ManageComments.vue';
 import Users from '@/views/AllUsers.vue';
 
 
-const user = JSON.parse(localStorage.getItem("user"))
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -76,13 +75,13 @@ const router = createRouter({
       path: '/dashboard', 
       name: 'dashboard', 
       component: Dashboard,
-      meta:{ isAuth:true,isAdmin:true}
+      meta:{ isAuth:true}
     },
     { 
       path: '/profile', 
       name: 'profile', 
       component: AdminProfile,
-      meta:{ isAuth:true,isAdmin:true}
+      meta:{ isAuth:true}
     },
     { 
       path: '/userprofile', 
@@ -94,8 +93,7 @@ const router = createRouter({
       path: '/editprofile', 
       name: 'editprofile', 
        component: EditProfile,
-      meta:{ isAuth:true,isAdmin:true}
-
+      meta:{ isAuth:true}
     }  ,
 
     { 
@@ -108,19 +106,19 @@ const router = createRouter({
       path: '/manageCat', 
       name: 'manageCat', 
       component: ManageCategories,
-      meta:{ isAuth:true,isAdmin:true}
+      meta:{ isAuth:true}
     },
     { 
       path: '/manageComs', 
       name: 'manageComs', 
       component: ManageComs,
-      meta:{ isAuth:true,isAdmin:true}
+      meta:{ isAuth:true}
     },
     { 
       path: '/manageUsers', 
       name: 'manageUsers', 
       component: Users,
-      meta:{ isAuth:true,isAdmin:true}
+      meta:{ isAuth:true}
     }
 
   ]
@@ -140,17 +138,12 @@ const router = createRouter({
 //     }
   
 // })
-router.beforeEach((to,next) => {
+router.beforeEach((to,) => {
   // instead of having to check every route record with
   // to.matched.some(record => record.meta.requiresAuth)
-  if (to.meta.isAuth && !localStorage.getItem("user") ) {
-
-    if (to.meta.isAdmin && user.user.isadmin == 0) {
-
-      return next("/comments")
-    }
-
-
+  if (to.meta.isAuth && !localStorage.getItem("user")) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
     return {
      path: '/login',
       // save the location we were at to come back later
