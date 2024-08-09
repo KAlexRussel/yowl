@@ -10,7 +10,7 @@ export const allcategories = async () => {
             'Authorization': 'Bearer ' + TokenValue
         }
     }
-    const result = await fetch('http://127.0.0.1:8000/api/categories', options)
+    const result = await fetch('http://4.221.173.63:8001/api/categories', options)
         .then((reponse) => reponse.json())
         .then((data) => data)
     return result
@@ -28,7 +28,7 @@ export const onecategories = async (id) => {
             'Authorization': 'Bearer ' + TokenValue
         }
     }
-    const result = await fetch('http://127.0.0.1:8000/api/categories' + id, options)
+    const result = await fetch('http://4.221.173.63:8001/api/categories' + id, options)
         .then((reponse) => reponse.json())
         .then((data) => data)
     return result
@@ -50,7 +50,7 @@ export const createcategories = async (parent_id, name) => {
             name: name
         })
     }
-    const result = await fetch('http://127.0.0.1:8000/api/categories', options)
+    const result = await fetch('http://4.221.173.63:8001/api/categories', options)
         .then((reponse) => reponse.json())
         .then((data) => data)
     return result
@@ -74,7 +74,7 @@ export const updatecategories = async (parent_id, name, id) => {
             name: name
         })
     }
-    const result = await fetch('http://127.0.0.1:8000/api/categories' + id, options)
+    const result = await fetch('http://4.221.173.63:8001/api/categories' + id, options)
         .then((reponse) => reponse.json())
         .then((data) => data)
     return result
@@ -92,7 +92,7 @@ export const removecategories = async (id) => {
             'Authorization': 'Bearer ' + TokenValue
         }
     }
-    const result = await fetch('http://127.0.0.1:8000/api/categories' + id, options)
+    const result = await fetch('http://4.221.173.63:8001/api/categories' + id, options)
         .then((reponse) => reponse.json())
         .then((data) => data)
     return result

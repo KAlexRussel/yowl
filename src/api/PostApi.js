@@ -11,7 +11,7 @@ export const allpost = async () => {
             'Authorization': 'Bearer ' + TokenValue
         }
     }
-    const result = await fetch('http://127.0.0.1:8000/api/posts', options)
+    const result = await fetch('http://4.221.173.63:8001/api/posts/', options)
         .then((reponse) => reponse.json())
         .then((data) => data)
 
@@ -30,7 +30,7 @@ export const onepost = async (id) => {
             'Authorization': 'Bearer ' + TokenValue
         }
     }
-    const result = await fetch('http://127.0.0.1:8000/api/posts/' + id, options)
+    const result = await fetch('http://4.221.173.63:8001/api/posts/' + id, options)
         .then((reponse) => reponse.json())
         .then((data) => data)
     return result
@@ -78,7 +78,7 @@ export const createpost = async (url, user_id, content, category_id = null, nota
     
 
 
-    const result = await fetch('http://127.0.0.1:8000/api/posts', options)
+    const result = await fetch('http://4.221.173.63:8001/api/posts/', options)
         .then((reponse) => reponse.json())
         .then((data) => data)
     return result
@@ -125,7 +125,7 @@ export const updatepost = async (url, content, id, category_id) => {
 
     }
 
-    const result = await fetch('http://127.0.0.1:8000/api/posts/' + id, options)
+    const result = await fetch('http://4.221.173.63:8001/api/posts/' + id, options)
         .then((reponse) => reponse.json())
         .then((data) => data)
     return result
@@ -145,7 +145,7 @@ export const removepost = async (id) => {
             'Authorization': 'Bearer ' + TokenValue
         }
     }
-    const result = await fetch('http://127.0.0.1:8000/api/posts/' + id, options)
+    const result = await fetch('http://4.221.173.63:8001/api/posts/' + id, options)
         .then((reponse) => reponse.json())
         .then((data) => data)
     return result

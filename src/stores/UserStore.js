@@ -22,7 +22,7 @@ export const useUserStore = defineStore('user', {
                 'Authorization': 'Bearer ' + TokenValue
             }
 
-            const response = await fetch("http://127.0.0.1:8000/api/users", {
+            const response = await fetch("http://4.221.173.63:8001/api/users", {
                 method: "GET",
                 headers: headers,
 
@@ -42,7 +42,7 @@ export const useUserStore = defineStore('user', {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + TokenValue
             }
-            const response = await fetch("http://127.0.0.1:8000/api/users" + id, {
+            const response = await fetch("http://4.221.173.63:8001/api/users/" + id, {
                 method: "DELETE",
                 headers: headers,
 

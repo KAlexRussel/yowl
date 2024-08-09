@@ -1,5 +1,5 @@
 // const token = TOKEN.ENV;
-const api = 'http://127.0.0.1:8000/api/'
+const api = 'http://4.221.173.63:8001/api/'
 
 
 
